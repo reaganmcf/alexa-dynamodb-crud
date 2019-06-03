@@ -1,15 +1,15 @@
 {
-  "name": "hello-world",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "ask-sdk-core": "^2.0.0",
-    "ask-sdk-model": "^1.0.0"
-  }
+	"name": "alexa-dynamodb-crud",
+	"version": "1.0.0",
+	"description": "DynamoDB CRUD Example with Alexa Node.JS Skills Kit",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"ask-sdk-core": "^2.0.0",
+		"ask-sdk-model": "^1.0.0"
+	}
 }

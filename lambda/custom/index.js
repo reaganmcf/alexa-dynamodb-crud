@@ -31,7 +31,7 @@ const SessionEndedRequestHandler = {
 	handle(handlerInput) {
 		const { request } = handlerInput.requestEnvelope;
 		console.log(`Session ended with reason: ${request.reason}`);
-		return handlerInput.responseBuilder.getResponse();
+		return handlerInput.responseBuilder.speak('Goodbye!').getResponse();
 	}
 };
 
@@ -47,6 +47,8 @@ const CreateContactIntent = {
 	async handle(handlerInput) {
 		const { request } = handlerInput.requestEnvelope;
 		const contactSlot = request.intent.slots.Contact;
+		let res = await API.createContact(contactSlot);
+		console.log(res);
 		return handlerInput.responseBuilder.speak('Feature not implemented yet').getResponse();
 	}
 };
@@ -139,3 +141,19 @@ const ErrorHandler = {
 		return handlerInput.responseBuilder.speak(Messages.ERROR).reprompt(Messages.ERROR).getResponse();
 	}
 };
+
+const skillBuilder = Alexa.SkillBuilders.custom();
+
+exports.handler = skillBuilder
+	.addRequestHandlers(
+		LaunchRequestHandler,
+		SessionEndedRequestHandler,
+		CreateContactIntent,
+		DeleteContactIntent,
+		UpdateContactIntent,
+		ReadContactIntent,
+		HelpIntentHandler,
+		CancelAndStopIntentHandler
+	)
+	.addErrorHandlers(ErrorHandler)
+	.lambda();

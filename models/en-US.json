@@ -1,77 +1,69 @@
 {
-  "interactionModel": {
-    "languageModel": {
-      "invocationName": "voice phonebook",
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.FallbackIntent",
-          "samples": []
-        },
-        {
-          "name": "CreateContactIntent",
-          "slots": [
-            {
-              "name": "Contact",
-              "type": "AMAZON.US_FIRST_NAME"
-            }
-          ],
-          "samples": [
-            "Add {Contact} as a Contact"
-          ]
-        },
-        {
-          "name": "DeleteContactIntent",
-          "slots": [
-            {
-              "name": "Contact",
-              "type": "AMAZON.US_FIRST_NAME"
-            }
-          ],
-          "samples": [
-            "Delete {Contact} as a Contact"
-          ]
-        },
-        {
-          "name": "UpdateContactIntent",
-          "slots": [
-            {
-              "name": "Contact",
-              "type": "AMAZON.US_FIRST_NAME"
-            },
-            {
-              "name": "Phone_Number",
-              "type": "AMAZON.PhoneNumber"
-            }
-          ],
-          "samples": [
-            "Update {Contact}'s phone number to {Phone_Number}"
-          ]
-        },
-        {
-          "name": "ReadContactIntent",
-          "slots": [
-            {
-              "name": "Contact",
-              "type": "AMAZON.US_FIRST_NAME"
-            }
-          ],
-          "samples": [
-            "What is {Contact}'s phone number?"
-          ]
-        }
-      ]
-    }
-  }
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "voice phonebook",
+			"intents": [
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.FallbackIntent",
+					"samples": []
+				},
+				{
+					"name": "CreateContactIntent",
+					"slots": [
+						{
+							"name": "Contact",
+							"type": "AMAZON.Person"
+						}
+					],
+					"samples": [ "Add {Contact} as a Contact" ]
+				},
+				{
+					"name": "DeleteContactIntent",
+					"slots": [
+						{
+							"name": "Contact",
+							"type": "AMAZON.Person"
+						}
+					],
+					"samples": [ "Delete {Contact} as a Contact" ]
+				},
+				{
+					"name": "UpdateContactIntent",
+					"slots": [
+						{
+							"name": "Contact",
+							"type": "AMAZON.Person"
+						},
+						{
+							"name": "Phone_Number",
+							"type": "AMAZON.PhoneNumber"
+						}
+					],
+					"samples": [ "Update {Contact} phone number to {Phone_Number}" ]
+				},
+				{
+					"name": "ReadContactIntent",
+					"slots": [
+						{
+							"name": "Contact",
+							"type": "AMAZON.Person"
+						}
+					],
+					"samples": [ "What is {Contact} phone number" ]
+				}
+			]
+		}
+	}
 }
