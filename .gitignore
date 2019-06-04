@@ -1,3 +1,5 @@
 node_modules/
 hooks/
 .ask/config
+config.js
+.env

@@ -47,9 +47,9 @@ const CreateContactIntent = {
 	async handle(handlerInput) {
 		const { request } = handlerInput.requestEnvelope;
 		const contactSlot = request.intent.slots.Contact;
-		let res = await API.createContact(contactSlot);
-		console.log(res);
-		return handlerInput.responseBuilder.speak('Feature not implemented yet').getResponse();
+		let res = await API.createContact(contactSlot.value);
+		var speechText = `${res ? 'Successfully' : 'Unsuccessfully'} created Contact ${contactSlot.value}`;
+		return handlerInput.responseBuilder.speak(speechText).getResponse();
 	}
 };
 
@@ -64,7 +64,9 @@ const DeleteContactIntent = {
 	async handle(handlerInput) {
 		const { request } = handlerInput.requestEnvelope;
 		const contactSlot = request.intent.slots.Contact;
-		return handlerInput.responseBuilder.speak('Feature not implemented yet').getResponse();
+		let res = await API.deleteContact(contactSlot.value);
+		var speechText = `${res ? 'Successfully' : 'Unsuccessfully'} deleted Contact ${contactSlot.value}`;
+		return handlerInput.responseBuilder.speak(speechText).getResponse();
 	}
 };
 
@@ -79,8 +81,12 @@ const UpdateContactIntent = {
 	async handle(handlerInput) {
 		const { request } = handlerInput.requestEnvelope;
 		const contactSlot = request.intent.slots.Contact;
-		const phoneNumberSlot = request.intent.slots.Phone_Number;
-		return handlerInput.responseBuilder.speak('Feature not implemented yet').getResponse();
+		const phoneNumberSlot = request.intent.slots.PhoneNumber;
+		let res = await await API.updateContact(contactSlot.value, phoneNumberSlot.value);
+		var speechText = `${res
+			? 'Successfully'
+			: 'Unsuccessfully'} updated Contact ${contactSlot.value}'s phone number to ${phoneNumberSlot.value}`;
+		return handlerInput.responseBuilder.speak(speechText).getResponse();
 	}
 };
 
@@ -95,7 +101,14 @@ const ReadContactIntent = {
 	async handle(handlerInput) {
 		const { request } = handlerInput.requestEnvelope;
 		const contactSlot = request.intent.slots.Contact;
-		return handlerInput.responseBuilder.speak('Feature not implemented yet').getResponse();
+		let res = await API.readContact(contactSlot.value);
+		let speechText = '';
+		if (res) {
+			speechText = `${contactSlot.value}'s phone number is ${res}`;
+		} else {
+			speechText = `Unsuccessfully read ${contactSlot.value}'s phone number`;
+		}
+		return handlerInput.responseBuilder.speak(speechText).getResponse();
 	}
 };
 

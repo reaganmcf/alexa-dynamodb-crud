@@ -47,11 +47,11 @@
 							"type": "AMAZON.Person"
 						},
 						{
-							"name": "Phone_Number",
-							"type": "AMAZON.PhoneNumber"
+							"name": "PhoneNumber",
+							"type": "AMAZON.NUMBER"
 						}
 					],
-					"samples": [ "Update {Contact} phone number to {Phone_Number}" ]
+					"samples": [ "Update {Contact} to {PhoneNumber}" ]
 				},
 				{
 					"name": "ReadContactIntent",
