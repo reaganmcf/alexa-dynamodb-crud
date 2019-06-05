@@ -56,7 +56,7 @@ const createContact = async function(contactName) {
 ```
 Above is what the new `createContact` function should look like, and it is visibly a fairly basic function, as with all of them will be. Every DynamoDB operation consists of this structure with different `params` and different leading method names, in this case `putItem(params)`. You will see that very little changes in each API call because of this, showing how easy and intuitive DynamoDB is! Also, notice how we return a boolean value here as we don't need any information besides the confirmation of whether the operation successfully executed.
 
-Now that we have the API call finished, lets update the corresponding `CreateIntentHandler` in `index.js`
+Now that we have the API call finished, lets update the corresponding `CreateIntentHandler` in `index.js`.
 ```js
 const CreateContactIntent = {
   canHandle(handlerInput) {
