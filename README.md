@@ -2,7 +2,7 @@
 
 ## Introduction
 
-> _By the way, make sure to check out VOICE Summit 2019, the Largest Voice Tech Event of the Year! You can learn more by visiting www.voicesummit.ai _
+> By the way, make sure to check out VOICE Summit 2019, the Largest Voice Tech Event of the Year! You can learn more by visiting www.voicesummit.ai 
 
 In the current day and age of software development, almost every application requires some sort of API / database integration. With NoSQL databases being used more and more, being able to send _Create, Read, Update, and Delete_ or _CRUD_ operations to an AWS DynamoDB is a necessary skill to have as a developer. While it seems daunting, DynamoDB is incredibly easy to work with, and that is why I wrote this article; to remove the fear of interacting with DynamoDB in Node.JS.
 
