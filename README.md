@@ -13,12 +13,12 @@ _Note: I am going to assume you already have `ask-cli` configured and proper IAM
 Here is the structure of my DynamoDB Table. I named mine `alexa-skill-table` and each document, let's call them a `Contact`, is going to be formatted as such: 
 ```js
 {
-  "username": "Reagan",
+  "username": "John",
   "phone_number": "1234567890"
 }
 ```
 
-Also before we get started, you are going to need to update the `config.js` file located at `lambda/custom/config.js` and replace all the fields to the fields that are associated with your particular `IAM Policy`. 
+Also, you are going to need to update the `config.js` file located at `lambda/custom/config.js` and replace all the fields to the fields that are associated with your particular `IAM Policy`. 
 ```js
 const config = {
 	DYNAMODB_CONFIG_SETTINGS: {
@@ -54,7 +54,7 @@ const createContact = async function(contactName) {
 		});
 };
 ```
-Above is what the new `createContact` function should look like, and it is visibly a fairly basic function, as with all of them will be. Every DynamoDB operation consists of this structure with different `params` and different leading method names, in this case `putItem(params)`. You will see that very little changes in each API call because of this, showing how easy and intuitive DynamoDB is! Also, notice how we return a boolean value here as we don't need any information besides the confirmation of whether the operation successfully executed
+Above is what the new `createContact` function should look like, and it is visibly a fairly basic function, as with all of them will be. Every DynamoDB operation consists of this structure with different `params` and different leading method names, in this case `putItem(params)`. You will see that very little changes in each API call because of this, showing how easy and intuitive DynamoDB is! Also, notice how we return a boolean value here as we don't need any information besides the confirmation of whether the operation successfully executed.
 
 Now that we have the API call finished, lets update the corresponding `CreateIntentHandler` in `index.js`
 ```js
@@ -76,7 +76,7 @@ The only part of the Intent handler we have to change is the `handle` property, 
 
 With the basic _Create_ operation successfully added, you can try this for yourself by running `ask deploy` at the project directory and going to the Skill's Developer interface. Go ahead and say **Alexa, Ask Voice Phonebook to add John as a contact** and head over to the DynamoDB table and see the new document!
 
-Now that we have the ability to _Create_ a `Contact`, we are also going to need the ability to _Delete_ a Contact, which is done in the next step.
+Now that we have the ability to _Create_ a `Contact`, we are also going to need the ability to _Delete_ a `Contact`, which is done in the next step.
 
 ---
 
@@ -122,7 +122,7 @@ This is practically identical to the `CreateContactIntent`, with just different 
 
 Go ahead and re-deploy the skill and ask **Alexa, Ask Voice Phonebook to delete John as a Contact**, and head back to your DynamoDB Interface and see that John was removed successfully.
 
-Things change up here a bit, as we are now going to implement the _Update_ functionality to change the `phone_number` property of a `Contact`
+Things change up here a bit, as we are now going to implement the _Update_ functionality to change the `phone_number` property of a `Contact`.
 
 ---
 
@@ -179,6 +179,7 @@ We have more code going on here because we have to send the new `phone_number` v
 You can re-deploy the skill and watch the database interface to see the John `Contact` get updated when you say **Alexa, Update John to 1235552212**.
 
 Finally, we will implement the _Read_ operation.
+
 ---
 
 ### Update `readContact` API Handler
@@ -202,7 +203,7 @@ const readContact = async function(contactName) {
 };
 ```
 
-This is very similar besides the `getItem(params)` operation as well as what we return. Unlike the other cases, we need to get the `phone_number` property back to the `ReadContactIntent`, so we return `res.Item.phone_number.S` to do so. Now, lets update `ReadContactIntent`
+This is very similar besides the `getItem(params)` operation as well as what we return. Unlike the other cases, we need to get the `phone_number` property back to the `ReadContactIntent`, so we return `res.Item.phone_number.S` to do so. Now, lets update `ReadContactIntent`.
 
 ```js
 const ReadContactIntent = {
