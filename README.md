@@ -2,8 +2,6 @@
 
 ## Introduction
 
-> By the way, make sure to check out VOICE Summit 2019, the Largest Voice Tech Event of the Year! You can learn more by visiting www.voicesummit.ai 
-
 In the current day and age of software development, almost every application requires some sort of API / database integration. With NoSQL databases being used more and more, being able to send _Create, Read, Update, and Delete_ or _CRUD_ operations to an AWS DynamoDB is a necessary skill to have as a developer. While it seems daunting, DynamoDB is incredibly easy to work with, and that is why I wrote this article; to remove the fear of interacting with DynamoDB in Node.JS.
 
 You can follow along with a [starter project](https://github.com/reaganmcf/alexa-dynamodb-crud-starter) that has all of the basic files setup for you, or skip right ahead to the [finished project](https://github.com/reaganmcf/alexa-dynamodb-crud). If you run into any issues and need help, feel free to [message me on Twitter](https://twitter.com/ReaganMcF1059) and I will be more than happy to help you out!
